@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>188bet 综合速查 · 主题知识库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f7fb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.65;
+            color: #2c3e50;
+            padding: 0 0 3rem 0;
+        }
+
+        /* 深色头图区 —— 目录感黑底金线 */
+        .hero-dark {
+            background: #0d1b2a;
+            background-image: radial-gradient(circle at 10% 30%, #1b2f44 0%, #0a121c 100%);
+            color: #eef3f9;
+            padding: 3.5rem 1.5rem 2.8rem;
+            text-align: center;
+            border-bottom: 4px solid #daa84b;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        }
+
+        .hero-dark h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-dark .sub {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: rgba(218, 168, 75, 0.15);
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #dbb96a;
+            border: 1px solid rgba(218, 168, 75, 0.25);
+        }
+
+        .hero-dark p {
+            max-width: 720px;
+            margin: 1.25rem auto 0.1rem;
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+
+        /* 主体容器 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* 目录感布局 —— 卡片目录网格 */
+        .index-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .index-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.4rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03), 0 4px 14px rgba(0, 30, 60, 0.06);
+            transition: 0.2s ease;
+            border-left: 4px solid #daa84b;
+        }
+
+        .index-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 20, 40, 0.08);
+            border-left-color: #b8923a;
+        }
+
+        .index-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #1a2a3a;
+            letter-spacing: 0.3px;
+        }
+
+        .index-card p {
+            font-size: 0.95rem;
+            color: #3e556a;
+            line-height: 1.55;
+        }
+
+        .index-card .tag {
+            display: inline-block;
+            background: #edf2f9;
+            padding: 0.2rem 0.7rem;
+            border-radius: 18px;
+            font-size: 0.75rem;
+            color: #2b4b6d;
+            margin-top: 0.75rem;
+        }
+
+        /* 说明区 & 提示区卡片样式（大卡片） */
+        .info-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin: 1.8rem 0 2rem;
+        }
+
+        .info-block h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2eaf2;
+            padding-bottom: 0.4rem;
+            color: #0f212f;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding-left: 0.25rem;
+        }
+
+        .info-block li {
+            padding: 0.35rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .info-block li::before {
+            content: "▹";
+            color: #daa84b;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .info-block .highlight-link {
+            background: #faf5ea;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* 提示区：明黄底纹 */
+        .tip-box {
+            background: #fef6e7;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #eddbbd;
+            margin: 1.8rem 0;
+        }
+
+        .tip-box h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #4f3b1e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-box p, .tip-box li {
+            color: #2a3a47;
+            font-size: 0.98rem;
+        }
+
+        .tip-box ul {
+            list-style: none;
+            padding-left: 0.2rem;
+            margin-top: 0.3rem;
+        }
+
+        .tip-box li {
+            padding: 0.3rem 0;
+        }
+
+        .tip-box li::before {
+            content: "•";
+            color: #b37c34;
+            font-weight: bold;
+            margin-right: 0.65rem;
+        }
+
+        /* FAQ 摘要（信息区） */
+        .faq-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .faq-item {
+            background: #f9fbfd;
+            border-radius: 14px;
+            padding: 0.9rem 1.2rem;
+            border-left: 3px solid #a0bcd6;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: #1f3a4c;
+        }
+
+        .faq-item span {
+            font-size: 0.95rem;
+            color: #3b566b;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #c6862b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(198, 134, 43, 0.25);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #8f6320;
+            border-bottom-color: #8f6320;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6c7f91;
+            border-top: 1px solid #dce4ed;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero-dark h1 {
+                font-size: 1.7rem;
+            }
+            .index-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .info-block {
+                padding: 1.3rem 1.2rem;
+            }
+            .tip-box {
+                padding: 1.2rem 1rem;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .index-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        /* 辅助 */
+        .inline-code {
+            background: #f0f4fa;
+            padding: 0.08rem 0.4rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-dark">
+        <h1>188bet · 主题速查</h1>
+        <div class="sub">知识入口 · 目录式整理</div>
+        <p>围绕关键词 <span style="color:#daa84b;">188bet</span> 整理的结构化参考页，涵盖背景说明、场景提示与常见问题摘要。适合快速了解主题脉络。</p>
+    </section>
+
+    <div class="container">
+
+        <!-- 目录卡片网格（4个卡片，目录感） -->
+        <div class="index-grid">
+            <div class="index-card">
+                <h3>📌 主题定位</h3>
+                <p>围绕 <a href="https://h5-188bet.com">188bet</a> 展开的综合性信息索引，整合了平台特点、使用场景与用户提示。</p>
+                <span class="tag">入口</span>
+            </div>
+            <div class="index-card">
+                <h3>🧩 功能模块</h3>
+                <p>涵盖移动端适配、界面导航、内容分区与常用工具入口，便于不同需求的浏览者快速定位。</p>
+                <span class="tag">结构</span>
+            </div>
+            <div class="index-card">
+                <h3>📖 使用说明</h3>
+                <p>对主要功能区域提供简明介绍，帮助新用户理解页面组织逻辑与信息层级。</p>
+                <span class="tag">指引</span>
+            </div>
+            <div class="index-card">
+                <h3>❗ 注意事项</h3>
+                <p>列出浏览与操作过程中常见的关注点，包括提示性说明与建议。</p>
+                <span class="tag">提示</span>
+            </div>
+        </div>
+
+        <!-- 说明区：详细介绍 -->
+        <div class="info-block">
+            <h2>🧾 说明区 · 主题背景</h2>
+            <p style="margin-bottom: 0.8rem;">此页面为围绕 <strong>188bet</strong> 建立的轻量知识库入口，内容主要从平台设计、访问场景与信息组织三个角度展开。以下为关键说明：</p>
+            <ul>
+                <li><strong>访问方式：</strong>通过 <a href="https://h5-188bet.com">188bet</a> 直达移动端优化页面，界面适配多种屏幕尺寸，操作逻辑统一。</li>
+                <li><strong>内容结构：</strong>采用分区卡片式布局，将功能介绍、提示信息与FAQ摘要分开陈列，降低阅读负担。</li>
+                <li><strong>导航逻辑：</strong>主要功能入口均放置在显眼位置，用户可通过标签快速切换模块。</li>
+                <li><strong>视觉风格：</strong>深色头部与浅色正文区形成对比，强调色用于链接及重要指示，确保信息层级清晰。</li>
+            </ul>
+        </div>
+
+        <!-- 提示区 -->
+        <div class="tip-box">
+            <h2>💡 提示区 · 使用建议</h2>
+            <p>以下建议基于常规浏览场景整理，可帮助更顺畅地使用页面功能：</p>
+            <ul>
+                <li>首次访问时，建议先浏览目录卡片，大致了解信息分区后再深入具体模块。</li>
+                <li>如使用移动设备，页面采用响应式设计，可自适应屏幕宽度，横竖屏皆可正常显示。</li>
+                <li>部分链接指向外部资源，浏览器会正常跳转，请留意网络环境与链接安全性。</li>
+                <li>若页面加载异常，可尝试刷新或检查浏览器缓存，多数问题可由此解决。</li>
+            </ul>
+        </div>
+
+        <!-- 相关信息区：FAQ 摘要 -->
+        <div class="info-block" style="margin-top: 0.2rem;">
+            <h2>❓ 相关信息区 · 常见问题摘要</h2>
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <strong>🔹 188bet 页面主要提供什么内容？</strong>
+                    <span>该站点面向移动端用户，提供清晰的功能入口与信息展示，主题围绕 <a href="https://h5-188bet.com">188bet</a> 展开，结构经过整理便于查阅。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>🔹 页面是否适合在手机浏览器使用？</strong>
+                    <span>是的，页面已针对小屏幕做适配，按钮、字体与间距均经过优化，触控操作友好。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>🔹 如何快速找到所需功能？</strong>
+                    <span>顶部导航区及目录卡片提供了分类指引，点击对应卡片可跳转或展开详情，逻辑直观。</span>
+                </div>
+                <div class="faq-item">
+                    <strong>🔹 页面上的链接安全吗？</strong>
+                    <span>本站仅汇总公开信息与结构说明，所有外部链接均指向原始来源，用户可根据自身判断访问。</span>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #4b667c;">更多细节可浏览页面各分区，或通过 <a href="https://h5-188bet.com">188bet</a> 直接访问主站。</p>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer-note">
+            <span>知识库入口页 · 信息整理参考 · 2025</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
